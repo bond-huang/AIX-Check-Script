@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>{{ hostname }} Check Report</title>
+    <style type="text/css">
+    h1 {
+        font-size: 200%;
+        text-align:center;
+    }
+    h2 {font-size: 150%}
+    h3 {font-size: 100%}
+    p {font-size: 100%}
+    </style>
+</head>
+    <body>
+        <style tpye="info/css">
+        .infotable{
+            width:400px;
+            height:100px;
+        }
+        </style>
+        <h1>AIX System Health Check Report</h1>
+            <p align="center">Host Name:{{ hostname }}</p>
+        <h2>System Information</h2>
+            <p>The system information is follow:</p>
+        <table class="infotable" border="1">
+            {% for item in items %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td align="left">{{ item['title'] }}</td>
+                <td align="left">{{ item['value'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2>System Error Check</h2> 
+            <h3>System Hardware Error Event</h3> 
+                {% for hwerr in hwerr_result %}
+                    <p>{{ hwerr }}</p>
+                {% endfor %}
+            <h3>System Software Error Event</h2> 
+                {% for swerr in swerr_result %}
+                    <p>{{ swerr }}</p>
+                {% endfor %}
+            <h3>System Errlogger Event</h2> 
+                {% for loggererr in loggererr_result %}
+                    <p>{{ loggererr }}</p>
+                {% endfor %}
+            <h3>System Unknown Error Event</h2> 
+                {% for unknownerr in unknownerr_result %}
+                    <p>{{ unknownerr }}</p>
+                {% endfor %}
+        <h2>File System Check</h2> 
+            <p>The File System is follow:</p>
+    </body>
+</html>
