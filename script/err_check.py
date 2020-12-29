@@ -18,7 +18,7 @@ class ErrCheck():
         hw_err = os.popen(hw_ckcmd)
         hw_err = hw_err.read()
         if len(hw_err) == 0:
-            hwerr_result = 'No hardware error found in the system!'
+            hwerr_result = ['No hardware error found in the system!']
         else:
             # Remove duplicate rows based on the IDENTIFIER column
             hw_err = os.popen(hw_ckcmd)
@@ -28,9 +28,7 @@ class ErrCheck():
                 k = [x[0:10] for x in hwerr_list]
                 if not re.findall(j,str(k)):
                     hwerr_list.append(i)
-            hw_err = ''.join(hwerr_list)
-            hw_err = hw_err.strip()
-            hwerr_result = 'Found some hardware event,please check:\n'+ hw_err
+            hwerr_result = ['Found some hardware event,please check:\n']+ hwerr_list
         return hwerr_result
     # Check the software error event in the AIX
     def sw_check(self):
@@ -38,7 +36,7 @@ class ErrCheck():
         sw_err = os.popen(sw_ckcmd)
         sw_err = sw_err.read()
         if len(sw_err) == 0:
-            swerr_result = 'No software error found in the system!'
+            swerr_result = ['No software error found in the system!']
         else:
             # Remove duplicate rows based on the IDENTIFIER column
             sw_err = os.popen(sw_ckcmd)
@@ -48,9 +46,7 @@ class ErrCheck():
                 k = [x[0:10] for x in swerr_list]
                 if not re.findall(j,str(k)):
                     swerr_list.append(i)
-            sw_err = ''.join(swerr_list)
-            sw_err = sw_err.strip()
-            swerr_result = 'Found some software event,please check:\n'+ sw_err
+            swerr_result = ['Found some software event,please check:\n']+ swerr_list
         return swerr_result
     # Check the errlogger information event in the AIX
     def logger_check(self):
@@ -58,7 +54,7 @@ class ErrCheck():
         logger_err = os.popen(logger_ckcmd)
         logger_err = logger_err.read()
         if len(logger_err) == 0:
-            loggererr_result = 'No errlogger information event found in the system!'
+            loggererr_result = ['No errlogger information event found in the system!']
         else:
             # Remove duplicate rows based on the IDENTIFIER column
             logger_err = os.popen(logger_ckcmd)
@@ -68,9 +64,7 @@ class ErrCheck():
                 k = [x[0:10] for x in loggererr_list]
                 if not re.findall(j,str(k)):
                     loggererr_list.append(i)
-            logger_err = ''.join(loggererr_list)
-            logger_err = logger_err.strip()
-            loggererr_result = 'Found some errlogger information event,please check:\n'+ logger_err
+            loggererr_result = ['Found some errlogger information event,please check:\n']+ loggererr_list
         return loggererr_result
     # Check the unknown error event in the AIX
     def unknown_check(self):
@@ -78,7 +72,7 @@ class ErrCheck():
         unknown_err = os.popen(unknown_ckcmd)
         unknown_err = unknown_err.read()
         if len(unknown_err) == 0:
-            unknownerr_result = 'No unknown event found in the system!'
+            unknownerr_result = ['No unknown event found in the system!']
         else:
             # Remove duplicate rows based on the IDENTIFIER column
             unknown_err = os.popen(unknown_ckcmd)
@@ -88,7 +82,6 @@ class ErrCheck():
                 k = [x[0:10] for x in unknownerr_list]
                 if not re.findall(j,str(k)):
                     unknownerr_list.append(i)
-            unknown_err = ''.join(unknownerr_list)
-            unknown_err = unknown_err.strip()
-            unknownerr_result = 'Found some unknown event,please check:\n'+ unknown_err
+            unknownerr_result = ['Found some unknown event,please check:\n']+ unknownerr_list
         return unknownerr_result
+
