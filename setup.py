@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-#######################################################################
-##################### Start check the AIX system! #####################
-#######################################################################
+####################################################################
+################### Start check the AIX system! ####################
+####################################################################
 import os
 import jinja2
 from script.sys_info import GetInfo
 from script.err_check import ErrCheck
+from script.perf_check import PerfCheck
+user = os.popen('whoami')
+user = user.read().strip()
+if user != 'root':
+    print('Please use the root user to run this script!')
+    quit()
 def render(tpl_path,**kwargs):
     path,falename = os.path.split(tpl_path)
     return jinja2.Environment(
@@ -36,6 +42,16 @@ loggererr_result = err_check.logger_check()
 print('Check the Unknown error event,please waiting...')
 unknownerr_result = err_check.unknown_check()
 print('Check system error log is complete!')
+
+# Check the system performance
+print('Check the system performance,please waiting...')
+perf_check = PerfCheck()
+print('Check the system CPU performance,please waiting...')
+cpuperf_list = perf_check.cpu_perf()
+print('Check the system Memory performance,please waiting...')
+mem_ps_list = perf_check.mem_perf()
+mem_description = perf_check.mem_analyze()
+print('Check system performance is complete!')
 
 # Generate html report
 print('Generate HTML report,please waiting...')
