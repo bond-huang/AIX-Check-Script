@@ -48,6 +48,42 @@
                 {% for unknownerr in unknownerr_result %}
                     <p>{{ unknownerr }}</p>
                 {% endfor %}
+        <h2>System Performance Check</h2>
+            <h3>CPU Performance</h3>
+            <table border="1" width="650">
+                <tr>
+                    <td align="center">Item</td>
+                    <td align="center">Max(%)</td>
+                    <td align="center">Min(%)</td>
+                    <td align="center">Avg(%)</td>
+                    <td align="center">State Analysis</td>
+                </tr>
+                {% for item in cpuperf_list %}
+                <tr>
+                    <td align="center">{{ item['name'] }}</td>
+                    <td align="center">{{ item['max'] }}</td>
+                    <td align="center">{{ item['min'] }}</td>
+                    <td align="center">{{ item['avg'] }}</td>
+                    <td align="left">{{ item['state'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <h3>Memory and PS Check</h3>
+            <table class="infotable" border="1" >
+                {% for item in mem_ps_list %}
+                <tr>
+                    <td align="center">{{ item['name'] }}</td>
+                    <td align="center">{{ item['size'] }}</td>
+                    <td align="center">{{ item['inuse'] }}</td>
+                    <td align="center">{{ item['used'] }}</td>
+                    <td align="center">{{ item['active'] }}</td>
+                    <td align="center">{{ item['auto'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+                {% for item in mem_description %}
+                <p>{{ item }}</p>
+                {% endfor %}
         <h2>File System Check</h2> 
             <p>The File System is follow:</p>
     </body>
