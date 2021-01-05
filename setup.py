@@ -3,10 +3,12 @@
 ################### Start check the AIX system! ####################
 ####################################################################
 import os
+import time
 import jinja2
 from script.sys_info import GetInfo
 from script.err_check import ErrCheck
 from script.perf_check import PerfCheck
+from script.rootvg_ck import RootvgCheck
 user = os.popen('whoami')
 user = user.read().strip()
 if user != 'root':
@@ -25,7 +27,8 @@ get_info = GetInfo()
 hostname = get_info.get_hostname()
 items = get_info.info_arrange()
 print('Get system information is complete!')
-
+time.sleep(1)
+print('')
 # Check the system error log for the past thirty days
 print('Check the system error log for the past thirty days...')
 err_check = ErrCheck()
@@ -42,7 +45,8 @@ loggererr_result = err_check.logger_check()
 print('Check the Unknown error event,please waiting...')
 unknownerr_result = err_check.unknown_check()
 print('Check system error log is complete!')
-
+time.sleep(1)
+print('')
 # Check the system performance
 print('Check the system performance,please waiting...')
 perf_check = PerfCheck()
@@ -52,7 +56,15 @@ print('Check the system Memory performance,please waiting...')
 mem_ps_list = perf_check.mem_perf()
 mem_description = perf_check.mem_analyze()
 print('Check system performance is complete!')
-
+time.sleep(1)
+print('')
+# Check the system rootvg
+print('Check the system rootvg,please waiting...')
+rootvg_check = RootvgCheck()
+rootvg_list = rootvg_check.rootvg_sort()
+print('Check system rootvg is complete!')
+time.sleep(1)
+print('')
 # Generate html report
 print('Generate HTML report,please waiting...')
 content = render('base.html',**locals())
