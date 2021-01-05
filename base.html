@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <head>
-    <title>teacher02 Check Report</title>
+    <title>{{ hostname }} Check Report</title>
     <style type="text/css">
     h1 {
         font-size: 200%;
         text-align: center;
-	color: green;
-       }
+        color: green;
+        }
     h2 {
-	font-size: 150%;
-	color: blue;
-	}
+        font-size: 150%;
+        color: blue;
+        }
     h3 {
-	font-size: 100%;
-	color: #CC33FF;
-	}
+        font-size: 100%;
+        color: #CC33FF;
+        }
     p {font-size: 100%}
-    body {
-	margin: 0 auto;
-	width: 756px;
-	height: 1086px;
-	}
+    body {  
+        margin: 0 auto;
+        width: 756px;
+        height: 1086px;
+        }
     </style>
 </head>
     <body>
@@ -96,6 +96,22 @@
                 {% for item in mem_description %}
                 <p>{{ item }}</p>
                 {% endfor %}
+        <h2>System rootvg Check</h2>
+            <p>The system rootvg information is follow:</p>
+            <table border="1" width="650">
+                <tr>
+                    <td align="center">Item</td>
+                    <td align="center">Value</td>
+                    <td align="center">Remarks</td>
+                </tr>
+                {% for item in rootvg_list %}
+                <tr>
+                    <td align="left">{{ item['item'] }}</td>
+                    <td align="center">{{ item['value']}}</td>
+                    <td align="left">{{ item['remarks'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         <h2>File System Check</h2> 
             <p>The File System is follow:</p>
     </body>
