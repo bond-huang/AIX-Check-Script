@@ -64,7 +64,7 @@ class GetInfo():
     # Organize the data into a dictionary and add it to the list
     def info_arrange(self):
         item_list = []
-        mtype = {'title':'Machine Typy','value':self.get_type()}
+        mtype = {'title':'Machine Type','value':self.get_type()}
         sn = {'title':'Serial Number','value':self.get_sn()}
         fw = {'title':'Platform Firmware Level','value':self.get_fw()}
         pmdate = {'title':'Check Date','value':self.get_time()}
