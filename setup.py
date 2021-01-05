@@ -29,6 +29,7 @@ items = get_info.info_arrange()
 print('Get system information is complete!')
 time.sleep(1)
 print('')
+
 # Check the system error log for the past thirty days
 print('Check the system error log for the past thirty days...')
 err_check = ErrCheck()
@@ -47,6 +48,7 @@ unknownerr_result = err_check.unknown_check()
 print('Check system error log is complete!')
 time.sleep(1)
 print('')
+
 # Check the system performance
 print('Check the system performance,please waiting...')
 perf_check = PerfCheck()
@@ -58,6 +60,7 @@ mem_description = perf_check.mem_analyze()
 print('Check system performance is complete!')
 time.sleep(1)
 print('')
+
 # Check the system rootvg
 print('Check the system rootvg,please waiting...')
 rootvg_check = RootvgCheck()
@@ -65,6 +68,7 @@ rootvg_list = rootvg_check.rootvg_sort()
 print('Check system rootvg is complete!')
 time.sleep(1)
 print('')
+
 # Generate html report
 print('Generate HTML report,please waiting...')
 content = render('base.html',**locals())
