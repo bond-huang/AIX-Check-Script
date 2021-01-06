@@ -9,11 +9,14 @@ from script.sys_info import GetInfo
 from script.err_check import ErrCheck
 from script.perf_check import PerfCheck
 from script.rootvg_ck import RootvgCheck
+from script.fs_check import FilesystemCheck
+# Check the user
 user = os.popen('whoami')
 user = user.read().strip()
 if user != 'root':
     print('Please use the root user to run this script!')
     quit()
+# Render funciton
 def render(tpl_path,**kwargs):
     path,falename = os.path.split(tpl_path)
     return jinja2.Environment(
@@ -66,6 +69,17 @@ print('Check the system rootvg,please waiting...')
 rootvg_check = RootvgCheck()
 rootvg_list = rootvg_check.rootvg_sort()
 print('Check system rootvg is complete!')
+time.sleep(1)
+print('')
+
+# Check the filesystems
+print('Check the filesystems,please waiting...')
+filesystem_check = FilesystemCheck()
+print('Check the filesystems usage rate,please waiting...')
+high_fs_result = filesystem_check.high_utili_fs()
+print('Check the unmount filesystems of rootvg,please waiting...')
+unmount_result = filesystem_check.unmount_fsck()
+print('Check filesystems is complete!')
 time.sleep(1)
 print('')
 
