@@ -10,6 +10,7 @@ from script.err_check import ErrCheck
 from script.perf_check import PerfCheck
 from script.rootvg_ck import RootvgCheck
 from script.fs_check import FilesystemCheck
+from script.fix_lpp_ck import FixLppCheck
 # Check the user
 user = os.popen('whoami')
 user = user.read().strip()
@@ -83,6 +84,17 @@ print('Check filesystems is complete!')
 time.sleep(1)
 print('')
 
+# Check the system fix and lpp filesets
+print('Check the system fix and lpp filesets,please waiting...')
+fix_lpp_check = FixLppCheck()
+print('Check the AIX system fix filesets,please waiting...')
+fixck_result = fix_lpp_check.fix_check()
+print('Check the AIX system lpp filesets,please waiting...')
+lppck_result = fix_lpp_check.lpp_check()
+print('Check system fix filesets and lpp is complete!')
+time.sleep(1)
+print('')
+
 # Generate html report
 print('Generate HTML report,please waiting...')
 content = render('base.html',**locals())
@@ -90,3 +102,4 @@ with open('report.html','w') as f:
     f.writelines(content)
     f.close()
 print('Generate HTML report is complete!')
+
