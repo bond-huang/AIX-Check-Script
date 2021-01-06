@@ -113,6 +113,11 @@
                 {% endfor %}
             </table>
         <h2>File System Check</h2> 
-            <p>The File System is follow:</p>
+            <h3>Check the filesystem usage rate</h3>
+                <p>{{ high_fs_result }}</p>
+            <h3>Check unmount filesystems of rootvg</h3>
+                <p>{{ unmount_result }}</p>
+        <h2>Check the System Disk</h2>
+            <p>The disk info is follow:</p>
     </body>
 </html>
