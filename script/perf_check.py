@@ -146,3 +146,86 @@ class PerfCheck():
             if not,recommended to increase physical memory.'
         mem_description.extend([note1,note2])
         return mem_description
+    # Check the system disk performance
+    def disk_perf(self):
+        disk_list_cmd = 'lspv |awk \'{print $1}\''
+        disk_list = os.popen(disk_list_cmd)
+        all_disk_iostat = []
+        for disk in disk_list:
+            disk = disk.strip()
+            disk_iostat_cmd = 'iostat -d '+disk+' 1 5 |grep '\
+                +disk+'| awk \'{print $2,$3,$4,$5,$6}\''
+            disk_iostat = os.popen(disk_iostat_cmd)
+            tm_act_list = []
+            kbps_list = []
+            tps_list = []
+            Kb_read_list = []
+            Kb_wrtn_list = []
+            for i in disk_iostat:
+                i = i.strip()
+                i = i.split(' ')
+                i = map(float,i)
+                i = list(i)
+                tm_act_list.append(i[0])
+                kbps_list.append(i[1])
+                tps_list.append(i[2])
+                Kb_read_list.append(i[3])
+                Kb_wrtn_list.append(i[4])
+            max_tm_act = max(tm_act_list)
+            avg_tm_act = round((sum(tm_act_list) / len(tm_act_list)),2)
+            max_kbps = max(kbps_list)
+            avg_kbps = round((sum(kbps_list) / len(kbps_list)),2)
+            max_tps = max(tps_list)
+            avg_tps = round((sum(tps_list) / len(tps_list)),2)
+            max_Kb_read = max(Kb_read_list)
+            avg_Kb_read = round((sum(Kb_read_list) / len(Kb_read_list)),2)
+            max_Kb_wrtn = max(Kb_wrtn_list)
+            avg_Kb_wrtn = round((sum(Kb_wrtn_list) / len(Kb_wrtn_list)),2)
+            disk_pref_dict = {'disk':disk,'max_tm_act':max_tm_act,\
+                'avg_tm_act':avg_tm_act,'max_kbps':max_kbps,\
+                'avg_kbps':avg_kbps,'max_tps':max_tps,\
+                'avg_tps':avg_tps,'max_Kb_read':max_Kb_read,\
+                'avg_Kb_read':avg_Kb_read,'max_Kb_wrtn':max_Kb_wrtn,\
+                'avg_Kb_wrtn':avg_Kb_wrtn}
+            all_disk_iostat.append(disk_pref_dict)
+        return all_disk_iostat
+    # Check the system adapter performance
+    def adapter_perf(self):
+        adapter_list_cmd = 'iostat -a |awk \'{RS=""}\
+            {if ($1 == "Vadapter:" || $1 == "Adapter:") \
+            print $0}\'|sed \'/dapter:/d\'|awk \'{print $1}\''
+        adapter_list = os.popen(adapter_list_cmd)
+        all_adapter_iostat = []
+        for adapter in adapter_list:
+            adapter = adapter.strip()
+            adapter_iostat_cmd = 'iostat -adt 1 5 |grep '\
+                +adapter+' |awk \'{print $2,$3,$4,$5}\''
+            adapter_iostat = os.popen(adapter_iostat_cmd)
+            adp_kbps_list = []
+            adp_tps_list = []
+            bkread_list = []
+            bkwrtn_list = []
+            for i in adapter_iostat:
+                i = i.strip()
+                i = i.split(' ')
+                i = map(float,i)
+                i = list(i)
+                adp_kbps_list.append(i[0])
+                adp_tps_list.append(i[1])
+                bkread_list.append(i[2])
+                bkwrtn_list.append(i[3])
+            max_adp_kbps = max(adp_kbps_list)
+            avg_adp_kbps = round((sum(adp_kbps_list) / len(adp_kbps_list)),2)
+            max_adp_tps = max(adp_tps_list)
+            avg_adp_tps = round((sum(adp_tps_list) / len(adp_tps_list)),2)
+            max_bkread = max(bkread_list)
+            avg_bkread = round((sum(bkread_list) / len(bkread_list)),2)
+            max_bkwrtn = max(bkwrtn_list)
+            avg_bkwrtn = round((sum(bkwrtn_list) / len(bkwrtn_list)),2)
+            adapter_pref_dict = {'adapter':adapter,\
+                'max_adp_kbps':max_adp_kbps,'avg_adp_kbps':avg_adp_kbps,\
+                'max_adp_tps':max_adp_tps,'avg_adp_tps':avg_adp_tps,\
+                'max_bkread':max_bkread,'avg_bkread':avg_bkread,\
+                'max_bkwrtn':max_bkwrtn,'avg_bkwrtn':avg_bkwrtn}
+            all_adapter_iostat.append(adapter_pref_dict)
+        return all_adapter_iostat
