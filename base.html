@@ -62,6 +62,7 @@
                 {% endfor %}
         <h2>System Performance Check</h2>
             <h3>CPU Performance</h3>
+            <p>The CPU Performance information is follow:</p>
             <table border="1" width="650">
                 <tr>
                     <td align="center">Item</td>
@@ -80,7 +81,8 @@
                 </tr>
                 {% endfor %}
             </table>
-            <h3>Memory And PS Check</h3>
+            <h3>Memory And PageSpace Check</h3>
+            <p>The Memory And PageSpace information is follow:</p>
             <table class="infotable" border="1" >
                 {% for item in mem_ps_list %}
                 <tr>
@@ -96,6 +98,42 @@
                 {% for item in mem_description %}
                 <p>{{ item }}</p>
                 {% endfor %}
+            <h3>System Disk Performance Data</h3>
+            <p>The disk performance data is follow:</p>
+            <table border="1" width="650" >
+                {% for item in all_disk_iostat %}
+                <tr>
+                    <td align="center">{{ item['disk'] }}</td>
+                    <td align="center">{{ item['max_tm_act'] }}</td>
+                    <td align="center">{{ item['avg_tm_act'] }}</td>
+                    <td align="center">{{ item['max_kbps'] }}</td>
+                    <td align="center">{{ item['avg_kbps'] }}</td>
+                    <td align="center">{{ item['max_tps'] }}</td>
+                    <td align="center">{{ item['avg_tps'] }}</td>
+                    <td align="center">{{ item['max_Kb_read'] }}</td>
+                    <td align="center">{{ item['avg_Kb_read'] }}</td>
+                    <td align="center">{{ item['max_Kb_wrtn'] }}</td>
+                    <td align="center">{{ item['avg_Kb_wrtn'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <h3>System Adapter Performance Data</h3>
+            <p>The adapter performance data is follow:</p>
+            <table border="1" width="650" >
+                {% for item in all_adapter_iostat %}
+                <tr>
+                    <td align="center">{{ item['adapter'] }}</td>
+                    <td align="center">{{ item['max_adp_kbps'] }}</td>
+                    <td align="center">{{ item['avg_adp_kbps'] }}</td>
+                    <td align="center">{{ item['max_adp_tps'] }}</td>
+                    <td align="center">{{ item['avg_adp_tps'] }}</td>
+                    <td align="center">{{ item['max_bkread'] }}</td>
+                    <td align="center">{{ item['avg_bkread'] }}</td>
+                    <td align="center">{{ item['max_bkwrtn'] }}</td>
+                    <td align="center">{{ item['avg_bkwrtn'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         <h2>System Rootvg Check</h2>
             <p>The system rootvg information is follow:</p>
             <table border="1" width="650">
