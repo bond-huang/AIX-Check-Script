@@ -61,6 +61,10 @@ cpuperf_list = perf_check.cpu_perf()
 print('Check the system Memory performance,please waiting...')
 mem_ps_list = perf_check.mem_perf()
 mem_description = perf_check.mem_analyze()
+print('Get the system disk performance date,please waiting...')
+all_disk_iostat = perf_check.disk_perf()
+print('Get the system adapter performance date,please waiting...')
+all_adapter_iostat = perf_check.adapter_perf()
 print('Check system performance is complete!')
 time.sleep(1)
 print('')
@@ -102,4 +106,5 @@ with open('report.html','w') as f:
     f.writelines(content)
     f.close()
 print('Generate HTML report is complete!')
+
 
