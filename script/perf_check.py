@@ -122,16 +122,13 @@ class PerfCheck():
         ps_auto = ps_auto.read().strip()
         # Organize Memory and Page Space data
         mem_ps_list = []
-        title = {'name':'Item','size':'Size',\
-            'inuse':'Inuse','used':'Used',\
-            'active':'Active','auto':'Auto'}
         memory = {'name':'Memory','size':mem_size,\
             'inuse':mem_inuse,'used':mem_used,\
             'active':mem_active,'auto':mem_auto}
         ps = {'name':'Page Space','size':ps_size,\
             'inuse':ps_inuse,'used':ps_used,\
             'active':ps_active,'auto':ps_auto}
-        mem_ps_list.extend([title,memory,ps])
+        mem_ps_list.extend([memory,ps])
         return mem_ps_list
     # Analyze the memory and page space data
     def mem_analyze(self):
