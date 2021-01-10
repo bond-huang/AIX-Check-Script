@@ -11,6 +11,7 @@ from script.perf_check import PerfCheck
 from script.rootvg_ck import RootvgCheck
 from script.fs_check import FilesystemCheck
 from script.fix_lpp_ck import FixLppCheck
+from script.device_check import DeviceCheck
 # Check the user
 user = os.popen('whoami')
 user = user.read().strip()
@@ -96,6 +97,20 @@ fixck_result = fix_lpp_check.fix_check()
 print('Check the AIX system lpp filesets,please waiting...')
 lppck_result = fix_lpp_check.lpp_check()
 print('Check system fix filesets and lpp is complete!')
+time.sleep(1)
+print('')
+
+# Check the system adapter information
+print('Check the system adapter information,please waiting...')
+device_check = DeviceCheck()
+print('Get the system hdisk information,please waiting...')
+all_hdisk_info = device_check.hdisk_info()
+hdisk_note = device_check.hdisk_description()
+print('Check the system adapter status,please waiting...')
+adapter_abnormal_result = device_check.adapter_check()
+print('Get the system vscsi and fscsi information,please waiting...')
+all_scsi_fc_info = device_check.scsi_fc_info()
+print('Check the system adapter information is complete!')
 time.sleep(1)
 print('')
 
