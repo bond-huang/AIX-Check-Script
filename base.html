@@ -65,11 +65,11 @@
             <p>The CPU Performance information is follow:</p>
             <table border="1" width="650">
                 <tr>
-                    <td align="center">Item</td>
-                    <td align="center">Max(%)</td>
-                    <td align="center">Min(%)</td>
-                    <td align="center">Avg(%)</td>
-                    <td align="center">State Analysis</td>
+                    <th align="center">Item</th>
+                    <th align="center">Max(%)</th>
+                    <th align="center">Min(%)</th>
+                    <th align="center">Avg(%)</th>
+                    <th align="center">State Analysis</th>
                 </tr>
                 {% for item in cpuperf_list %}
                 <tr>
@@ -84,6 +84,14 @@
             <h3>Memory And PageSpace Check</h3>
             <p>The Memory And PageSpace information is follow:</p>
             <table class="infotable" border="1" >
+                <tr>
+                    <th align="center">Item</th>
+                    <th align="center">Size</th>
+                    <th align="center">Inuse</th>
+                    <th align="center">Used</th>
+                    <th align="center">Active</th>
+                    <th align="center">Auto</th>
+                </tr>
                 {% for item in mem_ps_list %}
                 <tr>
                     <td align="center">{{ item['name'] }}</td>
@@ -101,6 +109,26 @@
             <h3>System Disk Performance Data</h3>
             <p>The disk performance data is follow:</p>
             <table border="1" width="650" >
+                <tr>
+                    <th rowspan="2">Disk</th>
+                    <th colspan="2">tm_act(%)</th>
+                    <th colspan="2">kbps</th>
+                    <th colspan="2">tps</th>
+                    <th colspan="2">Kb_read</th>
+                    <th colspan="2">Kb_wrtn</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                </tr>
                 {% for item in all_disk_iostat %}
                 <tr>
                     <td align="center">{{ item['disk'] }}</td>
@@ -120,6 +148,23 @@
             <h3>System Adapter Performance Data</h3>
             <p>The adapter performance data is follow:</p>
             <table border="1" width="650" >
+                <tr>
+                    <th rowspan="2">Adapter</th>
+                    <th colspan="2">kbps</th>
+                    <th colspan="2">tps</th>
+                    <th colspan="2">bkread</th>
+                    <th colspan="2">bkwrtn</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                </tr>
                 {% for item in all_adapter_iostat %}
                 <tr>
                     <td align="center">{{ item['adapter'] }}</td>
@@ -138,9 +183,9 @@
             <p>The system rootvg information is follow:</p>
             <table border="1" width="650">
                 <tr>
-                    <td align="center">Item</td>
-                    <td align="center">Value</td>
-                    <td align="center">Remarks</td>
+                    <th align="center">Item</th>
+                    <th align="center">Value</th>
+                    <th align="center">Remarks</th>
                 </tr>
                 {% for item in rootvg_list %}
                 <tr>
