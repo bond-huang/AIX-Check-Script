@@ -205,7 +205,60 @@
                 <p>{{ fixck_result }}</p>
             <h3>Check the AIX system lpp filesets</h3>
                 <p>{{ lppck_result }}</p>
-        <h2>Check The System Disk</h2>
-            <p>The disk info is follow:</p>
+        <h2>Check The System Device</h2>
+            <h3>The system hdisk information</h3>
+            <p>The hdisk information is follow:</p>
+            <table width="700" border="1">
+                <tr>
+                    <th>Hdisk</th>
+                    <th>Status</th>
+                    <th>VG</th>
+                    <th>ALGO</th>
+                    <th>HC_interval</th>
+                    <th>HC_mode</th>
+                    <th>Reserve</th>
+                    <th>PCM</th>
+                </tr>
+                {% for item in all_hdisk_info %}
+                <tr>
+                    <td align="center">{{ item['hdisk'] }}</td>
+                    <td align="center">{{ item['hdisk_status'] }}</td>
+                    <td align="center">{{ item['hdisk_vg'] }}</td>
+                    <td align="center">{{ item['hdisk_algorithm'] }}</td>
+                    <td align="center">{{ item['hdisk_hcheck'] }}</td>
+                    <td align="center">{{ item['hdisk_hcmode'] }}</td>
+                    <td align="center">{{ item['hdisk_reserve'] }}</td>
+                    <td align="center">{{ item['hdisk_pcm'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <p>The hdisk attribute description is follow:</p>
+            <p>{{ hdisk_note }}</p>
+            <h3>The system adapter information</h3>
+            <p>The adapter status information is follow:</p>
+            <p>{{ adapter_abnormal_result }}</p>
+            <p>The vscsi and fscsi information is follow:</p>
+            <table width="700" border="1">
+                <tr>
+                    <th>Adapter</th>
+                    <th>Status</th>
+                    <th>vscsi_err_recov</th>
+                    <th>attach</th>
+                    <th>dyntrk</th>
+                    <th>fc_err_recov</th>
+                </tr>
+                {% for item in all_scsi_fc_info %}
+                <tr>
+                    <td align="center">{{ item['name'] }}</td>
+                    <td align="center">{{ item['status'] }}</td>
+                    <td align="center">{{ item['vscsi_err_recov'] }}</td>
+                    <td align="center">{{ item['attach'] }}</td>
+                    <td align="center">{{ item['dyntrk'] }}</td>
+                    <td align="center">{{ item['fc_err_recov'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        <h2>Check The Device Path</h2>
+            <p>The device path information is follow:</p>
     </body>
 </html>
