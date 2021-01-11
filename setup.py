@@ -12,6 +12,7 @@ from script.rootvg_ck import RootvgCheck
 from script.fs_check import FilesystemCheck
 from script.fix_lpp_ck import FixLppCheck
 from script.device_check import DeviceCheck
+from script.path_check import PathCheck
 # Check the user
 user = os.popen('whoami')
 user = user.read().strip()
@@ -114,6 +115,15 @@ print('Check the system adapter information is complete!')
 time.sleep(1)
 print('')
 
+# Check the system disk path
+print('Check the MPIO device path,please waiting...')
+path_check = PathCheck()
+print('Check the MPIO device abnormal path,please waiting...')
+abnormal_path_result = path_check.result_sort()
+print('Check the MPIO device path is complete!')
+time.sleep(1)
+print('')
+
 # Generate html report
 print('Generate HTML report,please waiting...')
 content = render('base.html',**locals())
@@ -121,5 +131,6 @@ with open('report.html','w') as f:
     f.writelines(content)
     f.close()
 print('Generate HTML report is complete!')
+
 
 
