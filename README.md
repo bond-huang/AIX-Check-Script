@@ -6,3 +6,4 @@ Script usage instructions：
 - The script tries to avoid using python third-party libraries
 - Recommend AIX system version 7.1 or above.The writer uses AIX7100-04-03-1642
 - Need AIX system root user authority to run
+- If system using non-IBM multipath software, the path check script may be useless
