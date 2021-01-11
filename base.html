@@ -258,7 +258,35 @@
                 </tr>
                 {% endfor %}
             </table>
-        <h2>Check The Device Path</h2>
-            <p>The device path information is follow:</p>
+        <h2>Check The MPIO Device Path</h2>
+            <p>If using non-MPIO multipath software, the result may be useless.</p>
+            {% for abnormal in abnormal_path_result %}
+            <h3>Check the {{ abnormal['name'] }} path</h3>
+                {% if abnormal['result'] is string %}
+                <p>{{ abnormal['result'] }}</p>
+                {% else %}
+                <p>The {{ abnormal['name'] }} path is follow:</p>
+                <table width="650" border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Path_id</th>
+                        <th>Parent</th>
+                        <th>Connection</th>
+                    </tr>
+                    {% for item in abnormal['result'] %}
+                    <tr>
+                        <td align="center">{{ item['name'] }}</td>
+                        <td align="center">{{ item['status'] }}</td>
+                        <td align="center">{{ item['path_id'] }}</td>
+                        <td align="center">{{ item['parent'] }}</td>
+                        <td align="center">{{ item['connection'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+            {% endfor %}
+        <h2>Check The System Setting</h2>
+        <p>The System Setting is follow:</p>
     </body>
 </html>
