@@ -13,6 +13,7 @@ from script.fs_check import FilesystemCheck
 from script.fix_lpp_ck import FixLppCheck
 from script.device_check import DeviceCheck
 from script.path_check import PathCheck
+from script.sys_check import SystemCheck
 # Check the user
 user = os.popen('whoami')
 user = user.read().strip()
@@ -115,12 +116,31 @@ print('Check the system adapter information is complete!')
 time.sleep(1)
 print('')
 
-# Check the system disk path
+# Check the system device path
 print('Check the MPIO device path,please waiting...')
 path_check = PathCheck()
 print('Check the MPIO device abnormal path,please waiting...')
 abnormal_path_result = path_check.result_sort()
 print('Check the MPIO device path is complete!')
+time.sleep(1)
+print('')
+
+# Check the system process and ulimit setting
+print('Check the process and ulimit setting,please waiting...')
+system_check = SystemCheck()
+print('Get the last upgrade time of the AIX system,please waiting...')
+upgrade_time_result = system_check.upgrade_time_format()
+print('Get the last reboot time of the AIX system,please waiting...')
+reboot_time_result = system_check.reboot_time_format()
+print('Check whether the system has restarted after upgrade,please waiting...')
+reboot_ck_result = system_check.determine()
+print('Check the errdemon process,please waiting...')
+errdemon_result = system_check.errdemon_check()
+print('Check the srcmstr process,please waiting...')
+srcmstr_result = system_check.srcmstr_check()
+print('Get the system ulimit setting information,please waiting...')
+ulimit_list = system_check.ulimit_check()
+print('Check the system process and ulimit setting is complete!')
 time.sleep(1)
 print('')
 
