@@ -4,6 +4,7 @@
 #######################################################################
 import os
 class PathCheck():
+    # Check the disable path in the system
     def disable_check(self):
         disable_cmd= 'lspath -F "name status path_id parent connection"\
             |grep -i disable'
@@ -28,6 +29,7 @@ class PathCheck():
                 disable_path_list.append(disablepath)
             disable_result = disable_path_list
         return disable_result
+    # Check the defined path in the system
     def defined_check(self):
         defined_cmd= 'lspath -F "name status path_id parent connection"\
             |grep -i defined'
@@ -52,6 +54,7 @@ class PathCheck():
                 defined_path_list.append(definedpath)
             defined_result = defined_path_list
         return defined_result
+    # Check the missing path in the system
     def missing_check(self):
         missing_cmd= 'lspath -F "name status path_id parent connection"\
             |grep -i missing'
@@ -76,6 +79,7 @@ class PathCheck():
                 missing_path_list.append(missingpath)
             missing_result = missing_path_list
         return missing_result
+    # Check the failed path in the system
     def failed_check(self):
         failed_cmd= 'lspath -F "name status path_id parent connection"\
             |grep -i failed'
@@ -100,6 +104,7 @@ class PathCheck():
                 failed_path_list.append(failedpath)
             failed_result = failed_path_list
         return failed_result
+    # sort the data
     def result_sort(self):
         abnormal_path_result = []
         disable_info = self.disable_check()
