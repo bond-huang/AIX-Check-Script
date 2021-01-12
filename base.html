@@ -9,17 +9,18 @@
         }
     h2 {
         font-size: 150%;
-        color: blue;
+        color: #3300CC;
         }
     h3 {
         font-size: 100%;
-        color: #CC33FF;
+        color: #660099;
         }
     p {font-size: 100%}
     body {  
         margin: 0 auto;
         width: 756px;
         height: 1086px;
+        background: #F0F8FF
         }
     </style>
 </head>
@@ -286,7 +287,33 @@
                 </table>
                 {% endif %}
             {% endfor %}
-        <h2>Check The System Setting</h2>
-        <p>The System Setting is follow:</p>
+        <h2>Check The System Process And Setting</h2>
+            <h3>Check the system reboot and upgrade time</h3>
+            <p>{{ upgrade_time_result }}</p>
+            <p>{{ reboot_time_result }}</p>
+            <p>{{ reboot_ck_result }}</p>
+            <h3>Check the system process</h3>
+            <p>{{ errdemon_result }}</p>
+            <p>{{ srcmstr_result }}</p>
+            <h3>Check the system ulimit setting</h3>
+            <p>The system ulimit setting information is follow:</p>
+            <table width="750" border="1">
+                <tr>
+                    <th>Item</th>
+                    <th>Unit</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                {% for item in ulimit_list %}
+                <tr>
+                    <td align="center">{{ item['name'] }}</td>
+                    <td align="center">{{ item['unit'] }}</td>
+                    <td align="center">{{ item['vaule'] }}</td>
+                    <td align="left">{{ item['description'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        <h2>Check The PowerHA</h2>
+            <p>The PowerHA information is follow:</p>
     </body>
 </html>
