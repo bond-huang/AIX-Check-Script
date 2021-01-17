@@ -7,3 +7,5 @@ Script usage instructions：
 - Recommend AIX system version 7.1 or above.The writer uses AIX7100-04-03-1642
 - Need AIX system root user authority to run
 - If system using non-IBM multipath software, the path check script may be useless
+- If several pagespaces are used, the information may be inaccurate，modify it when I have time
+- The PowerHA check in the script has not been tested because there is no environment
