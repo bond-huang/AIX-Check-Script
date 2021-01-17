@@ -1,6 +1,6 @@
 # AIX System Check Script
 Check the AIX operating system and automatically generate a report in html format.    
-The The sample file is report.html.
+The report sample file is report.html.
 ## Description
 Script usage instructions：
 - Recommended to use python3.The writer uses Python 3.7.6
