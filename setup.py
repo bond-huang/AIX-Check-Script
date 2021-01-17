@@ -14,6 +14,8 @@ from script.fix_lpp_ck import FixLppCheck
 from script.device_check import DeviceCheck
 from script.path_check import PathCheck
 from script.sys_check import SystemCheck
+from script.ha_check import HacmpCheck
+from script.log_file import ArchiveInfo
 # Check the user
 user = os.popen('whoami')
 user = user.read().strip()
@@ -141,6 +143,39 @@ srcmstr_result = system_check.srcmstr_check()
 print('Get the system ulimit setting information,please waiting...')
 ulimit_list = system_check.ulimit_check()
 print('Check the system process and ulimit setting is complete!')
+time.sleep(1)
+print('')
+
+# Check the PowerHA!
+print('Check the PowerHA,please waiting...')
+hacmp_check = HacmpCheck()
+print('Check whether the system have cluster configuration,please waiting...')
+cluster_conf = hacmp_check.cluster_check()
+hacmp_conf = hacmp_check.ha_status()
+if cluster_conf == False:
+    cluster_conf_result = 'No cluster was found!'
+elif hacmp_conf == False:
+    hacmp_conf_result = 'The cluster service has stopped!'
+else:
+    print('Get the cluster configuration information,please waiting...')
+    cls_cfginfo_list = hacmp_check.cluster_cfginfo()
+    print('Get the cluster IP_label configuration information,please waiting...')
+    ipinfo_list = hacmp_check.cluster_ipinfo()
+    print('Get the cluster operating status,please waiting...')
+    cls_status_lsit = hacmp_check.cls_status()
+    print('Get the cluster node operating status,please waiting...')
+    allnode_info_list = hacmp_check.node_status()
+    print('Get the Resource Group information and status,please waiting...')
+    allrg_info_list = hacmp_check.rg_info()
+print('Check the PowerHA is complete!')
+time.sleep(1)
+print('')
+
+# Archive system information
+print('Archive system information,please waiting...')
+archive_info = ArchiveInfo()
+archive_info.cmd_log()
+print('Archive system information complete!')
 time.sleep(1)
 print('')
 
