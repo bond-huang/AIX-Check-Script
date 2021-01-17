@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<head>
+    <title>teacher02 Check Report</title>
+    <style type="text/css">
+    h1 {
+        font-size: 200%;
+        text-align: center;
+        color: green;
+        }
+    h2 {
+        font-size: 150%;
+        color: #3300CC;
+        }
+    h3 {
+        font-size: 100%;
+        color: #660099;
+        }
+    p {font-size: 100%}
+    body {  
+        margin: 0 auto;
+        width: 756px;
+        height: 1086px;
+        background: #F0F8FF
+        }
+    </style>
+</head>
+    <body>
+        <style tpye="info/css">
+        .infotable{
+            width:400px;
+            height:100px;
+        }
+        </style>
+        <h1>AIX System Health Check Report</h1>
+            <p align="center">Host Name:teacher02</p>
+        <h2>System Information</h2>
+            <p>The system information is follow:</p>
+        <table class="infotable" border="1">
+            
+            <tr>
+                <td>1</td>
+                <td align="left">Machine Type</td>
+                <td align="left">9117-570</td>
+            </tr>
+            
+            <tr>
+                <td>2</td>
+                <td align="left">Serial Number</td>
+                <td align="left">65B4D6E</td>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+                <td align="left">Platform Firmware Level</td>
+                <td align="left">SF240_418</td>
+            </tr>
+            
+            <tr>
+                <td>4</td>
+                <td align="left">Check Date</td>
+                <td align="left">2021/01/12</td>
+            </tr>
+            
+            <tr>
+                <td>5</td>
+                <td align="left">Host Name</td>
+                <td align="left">teacher02</td>
+            </tr>
+            
+            <tr>
+                <td>6</td>
+                <td align="left">AIX Level</td>
+                <td align="left">7100-04-03-1642</td>
+            </tr>
+            
+            <tr>
+                <td>7</td>
+                <td align="left">CPU Entitled Capacity</td>
+                <td align="left">0.20</td>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+                <td align="left">Memory Size</td>
+                <td align="left">2048MB</td>
+            </tr>
+            
+            <tr>
+                <td>9</td>
+                <td align="left">Page Space Size</td>
+                <td align="left">1024MB</td>
+            </tr>
+            
+            <tr>
+                <td>10</td>
+                <td align="left">IP Address</td>
+                <td align="left">9.200.104.238</td>
+            </tr>
+            
+        </table>
+        <h2>System Error Check</h2> 
+            <h3>System Hardware Error Event</h3> 
+                
+                    <p>No hardware error found in the system!</p>
+                
+            <h3>System Software Error Event</h2> 
+                
+                    <p>Found some software event,please check:
+</p>
+                
+                    <p>IDENTIFIER TIMESTAMP  T C RESOURCE_NAME  DESCRIPTION
+</p>
+                
+                    <p>1BA7DF4E   0112233121 P S SRC            SOFTWARE PROGRAM ERROR
+</p>
+                
+                    <p>CB4A951F   0112233121 I S SRC            SOFTWARE PROGRAM ERROR
+</p>
+                
+                    <p>D1E21BA3   0112045621 I S errdemon       LOG FILE EXPANDED TO REQUESTED SIZE
+</p>
+                
+            <h3>System Errlogger Event</h2> 
+                
+                    <p>No errlogger information event found in the system!</p>
+                
+            <h3>System Unknown Error Event</h2> 
+                
+                    <p>No unknown event found in the system!</p>
+                
+        <h2>System Performance Check</h2>
+            <h3>CPU Performance</h3>
+            <p>The CPU Performance information is follow:</p>
+            <table border="1" width="650">
+                <tr>
+                    <th align="center">Item</th>
+                    <th align="center">Max(%)</th>
+                    <th align="center">Min(%)</th>
+                    <th align="center">Avg(%)</th>
+                    <th align="center">State Analysis</th>
+                </tr>
+                
+                <tr>
+                    <td align="center">usage</td>
+                    <td align="center">20.6</td>
+                    <td align="center">2.3</td>
+                    <td align="center">6.38</td>
+                    <td align="left">Normal!The CPU usage is normal.</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">idle</td>
+                    <td align="center">97.7</td>
+                    <td align="center">77.2</td>
+                    <td align="center">93.18</td>
+                    <td align="left">Normal!The CPU idle is normal.</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">iowait</td>
+                    <td align="center">2.1</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.42</td>
+                    <td align="left">It is a complex indicator,No analysis yet.</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">entc</td>
+                    <td align="center">31.0</td>
+                    <td align="center">4.7</td>
+                    <td align="center">10.74</td>
+                    <td align="left">Less than Entitled Capacity,refer to the usage rate.</td>
+                </tr>
+                
+            </table>
+            <h3>Memory And PageSpace Check</h3>
+            <p>The Memory And PageSpace information is follow:</p>
+            <table class="infotable" border="1" >
+                <tr>
+                    <th align="center">Item</th>
+                    <th align="center">Size</th>
+                    <th align="center">Inuse</th>
+                    <th align="center">Used</th>
+                    <th align="center">Active</th>
+                    <th align="center">Auto</th>
+                </tr>
+                
+                <tr>
+                    <td align="center">Memory</td>
+                    <td align="center">2048MB</td>
+                    <td align="center">1923MB</td>
+                    <td align="center">94%</td>
+                    <td align="center">N/A</td>
+                    <td align="center">N/A</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">Page Space</td>
+                    <td align="center">1024MB</td>
+                    <td align="center">14MB</td>
+                    <td align="center">1%</td>
+                    <td align="center">yes</td>
+                    <td align="center">yes</td>
+                </tr>
+                
+            </table>
+                
+                <p>Description:</p>
+                
+                <p>&#8195;&#8195;If the physical memory is almost exhausted             and the paging space usage is high,recommended             to increase physical memory.If the physical memory             is almost exhausted,but the paging space usage is very low,            and if the system is running a database,            check whether the database memory is sufficient,            if not,recommended to increase physical memory.</p>
+                
+            <h3>System Disk Performance Data</h3>
+            <p>The disk performance data is follow:</p>
+            <table border="1" width="650" >
+                <tr>
+                    <th rowspan="2">Disk</th>
+                    <th colspan="2">tm_act(%)</th>
+                    <th colspan="2">kbps</th>
+                    <th colspan="2">tps</th>
+                    <th colspan="2">Kb_read</th>
+                    <th colspan="2">Kb_wrtn</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                </tr>
+                
+                <tr>
+                    <td align="center">hdisk3</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">hdisk4</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">hdisk5</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                </tr>
+                
+            </table>
+            <h3>System Adapter Performance Data</h3>
+            <p>The adapter performance data is follow:</p>
+            <table border="1" width="650" >
+                <tr>
+                    <th rowspan="2">Adapter</th>
+                    <th colspan="2">kbps</th>
+                    <th colspan="2">tps</th>
+                    <th colspan="2">bkread</th>
+                    <th colspan="2">bkwrtn</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                </tr>
+                
+                <tr>
+                    <td align="center">vscsi2</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">vscsi3</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                    <td align="center">0.0</td>
+                </tr>
+                
+            </table>
+        <h2>System Rootvg Check</h2>
+            <p>The system rootvg information is follow:</p>
+            <table border="1" width="650">
+                <tr>
+                    <th align="center">Item</th>
+                    <th align="center">Value</th>
+                    <th align="center">Remarks</th>
+                </tr>
+                
+                <tr>
+                    <td align="left">Rootvg State</td>
+                    <td align="center">active</td>
+                    <td align="left">Must be active</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Rootvg Disk Member</td>
+                    <td align="center">hdisk3/hdisk4</td>
+                    <td align="left">N/A</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Total PPs:</td>
+                    <td align="center">1534</td>
+                    <td align="left">N/A</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Free PPs:</td>
+                    <td align="center">676</td>
+                    <td align="left">Pay attention if less</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">PP Size:</td>
+                    <td align="center">128MB</td>
+                    <td align="left">N/A</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Rootvg disks all on bootlist?</td>
+                    <td align="center">Yes</td>
+                    <td align="left">Please check and add if No</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Rootvg have a mirror?</td>
+                    <td align="center">Yes</td>
+                    <td align="left">Rootvg mirror except lg_dumplv</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">All LVs are syncd?</td>
+                    <td align="center">Yes</td>
+                    <td align="left">All must be syncd</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">All LVs are open?</td>
+                    <td align="center">Yes</td>
+                    <td align="left">All LVs open except hd5</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Primary dump LV</td>
+                    <td align="center">/dev/lg_dumplv</td>
+                    <td align="left">Please set if not lg_dumplv</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Forced copy flag</td>
+                    <td align="center">TRUE</td>
+                    <td align="left">Please set if not true</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Always allow dump</td>
+                    <td align="center">TRUE</td>
+                    <td align="left">Please set if not true</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Dump compression</td>
+                    <td align="center">ON</td>
+                    <td align="left">Please set if OFF</td>
+                </tr>
+                
+                <tr>
+                    <td align="left">Rootvg last backup time</td>
+                    <td align="center">N/A</td>
+                    <td align="left">Image.data cannot be found</td>
+                </tr>
+                
+            </table>
+        <h2>File System Check</h2> 
+            <h3>Check the filesystem usage rate</h3>
+                <p>No filesystem used over 80% was found.</p>
+            <h3>Check unmount filesystems of rootvg</h3>
+                <p>All filesystem of rootvg is mounted.</p>
+        <h2>Check System Fix And Lpp Filesets</h2>
+            <h3>Check the AIX system fix filesets</h3>
+                <p>All filesets for this OS level were found.</p>
+            <h3>Check the AIX system lpp filesets</h3>
+                <p>Warning,the lppchk command found some                 filesets need to be installed,please check!</p>
+        <h2>Check The System Device</h2>
+            <h3>The system hdisk information</h3>
+            <p>The hdisk information is follow:</p>
+            <table width="700" border="1">
+                <tr>
+                    <th>Hdisk</th>
+                    <th>Status</th>
+                    <th>VG</th>
+                    <th>ALGO</th>
+                    <th>HC_interval</th>
+                    <th>HC_mode</th>
+                    <th>Reserve</th>
+                    <th>PCM</th>
+                </tr>
+                
+                <tr>
+                    <td align="center">hdisk3</td>
+                    <td align="center">Available</td>
+                    <td align="center">rootvg</td>
+                    <td align="center">fail_over</td>
+                    <td align="center">0</td>
+                    <td align="center">nonactive</td>
+                    <td align="center">no_reserve</td>
+                    <td align="center">PCM/friend/vscsi</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">hdisk4</td>
+                    <td align="center">Available</td>
+                    <td align="center">rootvg</td>
+                    <td align="center">fail_over</td>
+                    <td align="center">0</td>
+                    <td align="center">nonactive</td>
+                    <td align="center">no_reserve</td>
+                    <td align="center">PCM/friend/vscsi</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">hdisk5</td>
+                    <td align="center">Available</td>
+                    <td align="center">datavg</td>
+                    <td align="center">fail_over</td>
+                    <td align="center">0</td>
+                    <td align="center">nonactive</td>
+                    <td align="center">no_reserve</td>
+                    <td align="center">PCM/friend/vscsi</td>
+                </tr>
+                
+            </table>
+            <p>The hdisk attribute description is follow:</p>
+            <p>&#8195;&#8195;Please set the value according             to the official IBM recommendation.If the VG is shared,             such as the heartbeat VG and shared VG in PowerHA,             please set reserve_policy to no_reserve.</p>
+            <h3>The system adapter information</h3>
+            <p>The adapter status information is follow:</p>
+            <p>Fonud some abnormal adapter: vscsi0,vscsi1</p>
+            <p>The vscsi and fscsi information is follow:</p>
+            <table width="700" border="1">
+                <tr>
+                    <th>Adapter</th>
+                    <th>Status</th>
+                    <th>vscsi_err_recov</th>
+                    <th>attach</th>
+                    <th>dyntrk</th>
+                    <th>fc_err_recov</th>
+                </tr>
+                
+                <tr>
+                    <td align="center">vscsi2</td>
+                    <td align="center">Available</td>
+                    <td align="center">delayed_fail</td>
+                    <td align="center">N/A</td>
+                    <td align="center">N/A</td>
+                    <td align="center">N/A</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">vscsi3</td>
+                    <td align="center">Available</td>
+                    <td align="center">delayed_fail</td>
+                    <td align="center">N/A</td>
+                    <td align="center">N/A</td>
+                    <td align="center">N/A</td>
+                </tr>
+                
+            </table>
+        <h2>Check The MPIO Device Path</h2>
+            <p>If using non-MPIO multipath software, the result may be useless.</p>
+            
+            <h3>Check the disable path</h3>
+			
+                <p>No disable path was found.</p>
+                
+            
+            <h3>Check the defined path</h3>
+                
+                <p>No defined path was found.</p>
+                
+            
+            <h3>Check the missing path</h3>
+                
+                <p>The missing path is follow:</p>
+                <table width="650" border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Path_id</th>
+                        <th>Parent</th>
+                        <th>Connection</th>
+                    </tr>
+                    
+                    <tr>
+                        <td align="center">hdisk0</td>
+                        <td align="center">Missing</td>
+                        <td align="center">0</td>
+                        <td align="center">vscsi0</td>
+                        <td align="center">810000000000</td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="center">hdisk1</td>
+                        <td align="center">Missing</td>
+                        <td align="center">0</td>
+                        <td align="center">vscsi0</td>
+                        <td align="center">820000000000</td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="center">hdisk2</td>
+                        <td align="center">Missing</td>
+                        <td align="center">0</td>
+                        <td align="center">vscsi0</td>
+                        <td align="center">830000000000</td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="center">hdisk0</td>
+                        <td align="center">Missing</td>
+                        <td align="center">1</td>
+                        <td align="center">vscsi1</td>
+                        <td align="center">810000000000</td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="center">hdisk1</td>
+                        <td align="center">Missing</td>
+                        <td align="center">1</td>
+                        <td align="center">vscsi1</td>
+                        <td align="center">810000000000</td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="center">hdisk2</td>
+                        <td align="center">Missing</td>
+                        <td align="center">1</td>
+                        <td align="center">vscsi1</td>
+                        <td align="center">830000000000</td>
+                    </tr>
+                    
+                </table>
+                
+            
+            <h3>Check the failed path</h3>
+                
+                <p>No failed path was found.</p>
+                
+            
+        <h2>Check The System Process And Setting</h2>
+            <h3>Check the system reboot and upgrade time</h3>
+            <p>The latest upgrade time is:Tue Jan 22 20:20:24 2019</p>
+            <p>The latest reboot time is:Sat Nov  7 06:30:45 2020</p>
+            <p>The system has been restart after upgrade!</p>
+            <h3>Check the system process</h3>
+            <p>The errdemon process is running.</p>
+            <p>The srcmstr process is running.</p>
+            <h3>Check the system ulimit setting</h3>
+            <p>The system ulimit setting information is follow:</p>
+            <table width="750" border="1">
+                <tr>
+                    <th>Item</th>
+                    <th>Unit</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                
+                <tr>
+                    <td align="center">time</td>
+                    <td align="center">seconds</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Specifies the No. of seconds to be used by each process</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">file</td>
+                    <td align="center">blocks</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Sets the file size             limit in blocks when Limit parameter is used</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">data</td>
+                    <td align="center">K bytes</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Specifies the size of the data area</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">stack</td>
+                    <td align="center">K bytes</td>
+                    <td align="center">4194304</td>
+                    <td align="left">Specifies the stack size</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">memory</td>
+                    <td align="center">K bytes</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Specifies the size of physical memory</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">coredump</td>
+                    <td align="center">512b blocks</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Specifies the size of core dumps</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">nofiles</td>
+                    <td align="center">descriptors</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Specifies limit             on the No. of file descriptors a process may have</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">threads</td>
+                    <td align="center">per process</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Specifies the             limit on the No. of threads a process can have</td>
+                </tr>
+                
+                <tr>
+                    <td align="center">processes</td>
+                    <td align="center">per user</td>
+                    <td align="center">unlimited</td>
+                    <td align="left">Specifies the             limit on the No. of a process a user can create</td>
+                </tr>
+                
+            </table>
+        <h2>Check The PowerHA</h2>
+            <p>The PowerHA information is follow:</p>
+    </body>
+</html>
