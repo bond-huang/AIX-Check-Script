@@ -314,6 +314,96 @@
                 {% endfor %}
             </table>
         <h2>Check The PowerHA</h2>
-            <p>The PowerHA information is follow:</p>
+            {% if cluster_conf %}
+                {% if cluster_conf %}
+                <h3>The cluster configuration information</h3>
+                <p>The cluster configuration information is follow:</p>
+                <table width="600" border="1">
+                    <tr>
+                        <th>Item</th>
+                        <th>Configuration</th>
+                    <tr>
+                    {% for item in cls_cfginfo_list %}
+                        <tr>
+                            <td align="center">{{ item['name'] }}</td>
+                            <td align="center">{{ item['value'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <p>The cluster IP_label configuration information is follow:</p>
+                <table width="600" border="1">
+                    <tr>
+                        <th>IP Label</th>
+                        <th>Network</th>
+                        <th>Type</th>
+                        <th>Node</th>
+                        <th>Address</th>
+                    <tr>
+                    {% for item in ipinfo_list %}
+                        <tr>
+                            <td align="center">{{ item['name'] }}</td>
+                            <td align="center">{{ item['network'] }}</td>
+                            <td align="center">{{ item['type'] }}</td>
+                            <td align="center">{{ item['node'] }}</td>
+                            <td align="center">{{ item['address'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <h3>The cluster operating status</h3>
+                <p>The cluster operating status is follow:</p>
+                <table width="600" border="1">
+                    <tr>
+                        <th>Item</th>
+                        <th>State</th>
+                    <tr>
+                    {% for item in cls_status_lsit %}
+                        <tr>
+                            <td align="center">{{ item['name'] }}</td>
+                            <td align="center">{{ item['state'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <h3>The cluster node operating status</h3>
+                    {% for nodeinfo in allnode_info_list %}
+                    <p>One node of cluster operating status is follow:</p>
+                    <table width="600" border="1">
+                        <tr>
+                            <th>Item</th>
+                            <th>Name or Lable</th>
+                            <th>State or Setting</th>
+                        <tr>
+                        {% for item in nodeinfo %}
+                            <tr>
+                                <td align="center">{{ item['item'] }}</td>
+                                <td align="center">{{ item['name'] }}</td>
+                                <td align="center">{{ item['state'] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    {% endfor %}
+                <h3>The cluster Resource Group information and status</h3>
+                {% for rginfo in allrg_info_list %}
+                <p>One Resource Group of cluster status is follow:</p>
+                <table width="600" border="1">
+                    <tr>
+                        <th>Item</th>
+                        <th>State or Setting</th>
+                    <tr>
+                    {% for item in rginfo %}
+                        <tr>
+                            <td align="center">{{ item['name'] }}</td>
+                            <td align="center">{{ item['value'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                {% endfor %}
+                {% else %}
+                <p>{{ hacmp_conf_result }}</p>
+                {% endif %}
+            {% else %}
+            <p>{{ cluster_conf_result }}</p>
+            {% endif %}
+        <h2>Archive system information</h2>
+        <p>Save some command output,the file is saved in the current folder.</p>
     </body>
 </html>
